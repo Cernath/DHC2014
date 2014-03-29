@@ -17,20 +17,18 @@
         %span
       #menu
         .pure-menu.pure-menu-open
-          %a.pure-menu-heading{:href => "#"} DHC2014
+          %a.pure-menu-heading{:href => "/"} DHC2014
           %ul
             %li
               %a{:href => "/"} Carte
             %li.menu-item-divided.pure-menu-selected
               %a{:href => "/globals"} Detect me
             %li
-              %a{:href => "#"} Services
-            %li
               %a{:href => "/about/index"} A propos
       #main
         .header
           %h1 Epidemic Detect
-          %h2 Un sous titre
+          %h2 Detect me
         .content
           %h2.content-subhead 
           .pure-g
@@ -38,8 +36,12 @@
             .pure-u-1-4
             .pure-u-1-4
             .pure-u-1-4
-          %h2.content-subhead Detect me
-          %div{:id => "grippe"} grippe
+          %h2 Cochez vos symptomes
+          %button#grippe Grippe
+          %button#bronchiolite Bronchiolite
+          %button#gastro Gastro
+          %br
+          %br
           %div{style:"display:none", :id=>"grippe-checkbox"}
             %input{:type => "checkbox"}=@grippe.first['symp1']
             %br
@@ -47,9 +49,6 @@
             %br
             %input{:type => "checkbox"}=@grippe.first['symp3']
             %br
-          
-
-          %div{:id => "gastro"} gastro
           %div{style:"display:none",:id=>"gastro-checkbox"}
             %input{:type => "checkbox"}=@gastro.first['symp1']
             %br
@@ -61,8 +60,6 @@
             %br
             %input{:type => "checkbox"}=@gastro.first['symp5']
             %br
-          
-          %div{:id => "bronchiolite"} bronchiolite
           %div{style:"display:none",:id=>"bronchiolite-checkbox"}
             %input{:type => "checkbox"}=@bronchiolite.first['symp1']
             %br
@@ -72,9 +69,8 @@
             %br
             %input{:type => "checkbox"}=@bronchiolite.first['symp4']
             %br
-
+          %br
           = render 'form'
-          = link_to 'Back', globals_path
 
 
 
@@ -82,19 +78,19 @@
     %script{:src => "/assets/ui.js"}
     :javascript
       $("#grippe").click(function(){
-      $("#grippe-checkbox").show();
+      $("#grippe-checkbox").toggle();
       $("#bronchiolite-checkbox").hide();
       $("#gastro-checkbox").hide();
       });
 
       $("#gastro").click(function(){
-      $("#gastro-checkbox").show();
+      $("#gastro-checkbox").toggle();
       $("#grippe-checkbox").hide();
       $("#bronchiolite-checkbox").hide();
       });
 
       $("#bronchiolite").click(function(){
-      $("#bronchiolite-checkbox").show();
+      $("#bronchiolite-checkbox").toggle();
       $("#gastro-checkbox").hide();
       $("#grippe-checkbox").hide();
       });

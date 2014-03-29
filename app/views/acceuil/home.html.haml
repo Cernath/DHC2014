@@ -24,39 +24,29 @@
             %li
               %a{:href => "/globals/new"} Detect me
             %li
-              %a{:href => "#"} Services
-            %li
               %a{:href => "/about/index"} A propos
       #main
         .header
           %h1 Epidemic Detect
-          %h2 Un sous titre
+          %h2 Carte
         .content
-          %h2.content-subhead Carte
-          .table
-            %tr   
-              %td  
-                %div{style: "width: 50%; height: 400px;"}
-                  #map{style: "width: 100%; height: 400px;position: relative; overflow: hidden"} 
-                .pure-g
-                  .pure-u-1-4
-                  .pure-u-1-4
-                  .pure-u-1-4
-                  .pure-u-1-4
-              %td
-                %div
-                  %input{type:'checkbox',name:"Grippe", value: '0'} Grippe
-                  %br/
-                  %input{type:'checkbox',name:"Bronchiolite"} Bronchiolite
-                  %br/
-                  %input{type:'checkbox',name:"Gastro"} Gastro
+          %div
+            %input{type:'checkbox',name:"Grippe", value: '0'} Grippe
+            %input{type:'checkbox',name:"Bronchiolite"} Bronchiolite
+            %input{type:'checkbox',name:"Gastro"} Gastro
 
+          %div{style: "width: 100%; height: 400px;"}
+            #map{style: "width: 100%; height: 400px;position: relative; overflow: hidden"} 
+          .pure-g
+            .pure-u-1-4
+            .pure-u-1-4
+            .pure-u-1-4
+            .pure-u-1-4
     %script{:src => "/assets/ui.js"}
 
 :javascript
   handler = Gmaps.build('Google');
   handler.buildMap({ 
-      provider: {zoom: 5}, 
       internal: {id: 'map'}
     },
     function() {

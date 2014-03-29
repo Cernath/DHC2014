@@ -28,24 +28,29 @@ class GlobalsController < ApplicationController
   # POST /globals
   # POST /globals.json
   def create 
-    @location = Geocoder.coordinates('82.235.183.181')
+    @result=request
+    @ip = @result.ip
+    @location = Geocoder.coordinates(@ip)
     @result = Geocoder.search(@location)
     @global = Global.new(global_params)
-    @global.ville =  @result[0].data.first[1][2].first[1]
-    @global.departement =  @result[0].data.first[1][3].first[1]
-    @global.region =  @result[0].data.first[1][4].first[1]
-      
-    @global.pays = @result[0].data.first[1][5].first[1] 
     
-
-    respond_to do |format|
-      if @global.save
-        format.html { redirect_to @global, notice: 'Global was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @global }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @global.errors, status: :unprocessable_entity }
+    if ( @ip != '127.0.0.1' ) 
+      @global.ville =  @result[0].data.first[1][2].first[1]
+      @global.departement =  @result[0].data.first[1][3].first[1]
+      @global.region =  @result[0].data.first[1][4].first[1] 
+      @global.pays = @result[0].data.first[1][5].first[1] 
+      
+      respond_to do |format|
+        if @global.save
+          format.html { redirect_to @global, notice: 'Global was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @global }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @global.errors, status: :unprocessable_entity }
+        end
       end
+    else 
+      redirect_to "/globals/new"
     end
   end
 

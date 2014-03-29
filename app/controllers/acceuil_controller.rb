@@ -1,5 +1,12 @@
 class AcceuilController < ApplicationController
   def home
+
+    @total= Global.all;
+
+    @circle=Hash.new()
+
+    @gastro=Disease.where(:nameDiease => "gastro").count
+
     @maladie=Disease.new()
     @nbgastro=Disease.where(:nameDiease => "gastro").count
     @nbbronchiolites=Disease.where(:nameDiease => "bronchiolites").count
@@ -16,23 +23,22 @@ class AcceuilController < ApplicationController
 		@maladieMax="grippes"
 	end
     @circle=Hash.new()
+
     i=0
-    #@result = request @result.ip
-    @location = Geocoder.coordinates('82.235.183.181')
-    @result = Geocoder.search(@location)
-    @hash = Gmaps4rails.build_markers(@maladie) do |maladie, marker|
-		marker.lat @location[0]
-		marker.lng @location[1]
+
+    @hash = Gmaps4rails.build_markers(@total) do |total, marker|
+		marker.lat Geocoder.coordinates(total.ville)[0]
+		marker.lng Geocoder.coordinates(total.ville)[1]
 		marker.infowindow "Nombre de #{@maladieMax} : #{@max}"
 		marker.json({titre: "test" })
-		@circle[i]= { lat: @location[0], lng: @location[1],radius: 10000 }
+		@circle[i]= { lat: Geocoder.coordinates(total.ville)[0], lng: Geocoder.coordinates(total.ville)[1],radius: 10000 }
 		i=i+1
     end
     if ( params[:Grippe] == '1')
     	redirect_to "ok"
     end
   end
-
+  
   def show
   end
 end

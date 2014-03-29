@@ -14,7 +14,7 @@ development:
   database: DHC2014_development
   pool: 5
   username: root
-  password: thomas
+  password: 34090nancy
   #host: epidemic@195.25.102.190
   socket: /var/run/mysqld/mysqld.sock
 
@@ -27,7 +27,7 @@ test:
   database: epidemic
   pool: 5
   username: root
-  password: thomas
+  password: 34090nancy
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -36,5 +36,5 @@ production:
   database: epidemic
   pool: 5
   username: root
-  password: thomas
+  password: 34090nancy
   socket: /var/run/mysqld/mysqld.sock

@@ -14,8 +14,14 @@ development:
   database: DHC2014_development
   pool: 5
   username: root
+<<<<<<< HEAD
   password: thomas
   #host: 195.25.102.190
+=======
+  password: 34090nancy
+  #host: 195.25.102.190
+  #port: 3306
+>>>>>>> c6c04e0893f3034364dcddb7653478b515cab510
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -24,17 +30,17 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: DHC2014_test
+  database: epidemic
   pool: 5
   username: root
-  password: thomas
+  password: 34090nancy
   socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql2
   encoding: utf8
-  database: DHC2014_production
+  database: epidemic
   pool: 5
   username: root
-  password: thomas
+  password: 34090nancy
   socket: /var/run/mysqld/mysqld.sock

@@ -18,13 +18,18 @@
  
 :javascript
   handler = Gmaps.build('Google');
- 
+  
+  var infowindow= new google.maps.InfoWindow({
+          content: "coucou"
+  });
+  
   var map = handler.buildMap({ 
       provider: {zoom: 5}, 
       internal: {id: 'map'}
     },
     function() {
-       markers =handler.addMarkers(#{@hash.to_json});
+       markers = handler.addMarkers(#{@hash.to_json});
+       
        circle = [{lat: 48.5, lng: 7.7, radius: 100000 }]
        circle_options = { 
           strokeColor:"#313131",
@@ -33,17 +38,19 @@
           strokeWeight: 3,
           fillColor: '#C60800',
           fillOpacity: .6,
-          clickable: true,
-          
+          clickable: true
        }
-        var infowindow= new google.maps.InfoWindow({
-          content: "coucou"
-       });
-       google.maps.event.addListener(circle, 'click', function(object){ var position_clicked = object.latLng;});
+       
+       google.maps.event.addListener(circle, 'click', function(object){ 
+          infoWindow.setPosition(ev.latLng);
+          infoWindow.open(Gmaps.map);
+       }); 
+        
        handler.addCircles(circle, circle_options);
-      
        handler.bounds.extendWith(markers);
        handler.map.centerOn({ lat: 48.5, lng: 7.7 }); 
        handler.getMap().setZoom(10);
     }
+    
   ); 
+  

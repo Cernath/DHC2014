@@ -14,7 +14,8 @@ development:
   database: DHC2014_development
   pool: 5
   username: root
-  password: 34090nancy
+  password: thomas
+  #host: epidemic@195.25.102.190
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -26,7 +27,7 @@ test:
   database: DHC2014_test
   pool: 5
   username: root
-  password: 34090nancy
+  password: thomas
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -35,5 +36,5 @@ production:
   database: DHC2014_production
   pool: 5
   username: root
-  password: 34090nancy
+  password: thomas
   socket: /var/run/mysqld/mysqld.sock

@@ -19,9 +19,9 @@
         .pure-menu.pure-menu-open
           %a.pure-menu-heading{:href => "#"} DHC2014
           %ul
-            %li.menu-item-divided.pure-menu-selected
-              %a{:href => "/"} Home
             %li
+              %a{:href => "/"} Home
+            %li.menu-item-divided.pure-menu-selected
               %a{:href => "/detectme/index"} Detect me
             %li
               %a{:href => "#"} Services
@@ -32,9 +32,7 @@
           %h1 Epidemic Detect
           %h2 Un sous titre
         .content
-          %h2.content-subhead Carte
-          %div{style: "width: 100%; height: 400px;"}
-            #map{style: "width: 100%; height: 400px;position: relative; overflow: hidden;"} 
+          %h2.content-subhead 
           .pure-g
             .pure-u-1-4
             .pure-u-1-4
@@ -44,18 +42,3 @@
           %p
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     %script{:src => "/assets/ui.js"}
-
-:javascript
-  handler = Gmaps.build('Google');
-  handler.buildMap({ 
-      provider: {zoom: 5}, 
-      internal: {id: 'map'}
-    },
-    function() {
-       markers =handler.addMarkers(#{@hash.to_json});
-       handler.bounds.extendWith(markers);
-       handler.map.centerOn({ lat: 48.5, lng: 7.7 }); 
-       handler.getMap().setZoom(10);
-    }
-  ); 
-

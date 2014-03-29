@@ -1,0 +1,29 @@
+%h1 Listing globals
+
+%table
+  %tr
+    %th Ville
+    %th Departement
+    %th Region
+    %th Pays
+    %th Date
+    %th Maladie
+    %th
+    %th
+    %th
+
+  - @globals.each do |global|
+    %tr
+      %td= global.ville
+      %td= global.departement
+      %td= global.region
+      %td= global.pays
+      %td= global.date
+      %td= global.maladie
+      %td= link_to 'Show', global
+      %td= link_to 'Edit', edit_global_path(global)
+      %td= link_to 'Destroy', global, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Global', new_global_path

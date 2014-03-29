@@ -15,8 +15,6 @@ development:
   pool: 5
   username: root
   password: thomas
-  #host: 195.25.102.190
-  socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,11 +22,11 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: epidemic
+  database: DHC2014_test
   pool: 5
   username: root
-  password: 34090nancy
-  socket: /var/run/mysqld/mysqld.sock
+  password: thomas
+
 
 production:
   adapter: mysql2
@@ -36,5 +34,4 @@ production:
   database: epidemic
   pool: 5
   username: root
-  password: 34090nancy
-  socket: /var/run/mysqld/mysqld.sock
+  password: thomas

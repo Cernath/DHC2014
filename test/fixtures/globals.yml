@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ville: MyString
+  departement: MyString
+  region: MyString
+  pays: MyString
+  date: 2014-03-29
+  maladie: MyString
+
+two:
+  ville: MyString
+  departement: MyString
+  region: MyString
+  pays: MyString
+  date: 2014-03-29
+  maladie: MyString

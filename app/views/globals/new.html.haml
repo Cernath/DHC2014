@@ -22,7 +22,7 @@
             %li
               %a{:href => "/"} Carte
             %li.menu-item-divided.pure-menu-selected
-              %a{:href => "/globals/new"} Detect me
+              %a{:href => "/detectme/index"} Detect me
             %li
               %a{:href => "#"} Services
             %li
@@ -39,7 +39,6 @@
             .pure-u-1-4
             .pure-u-1-4
           %h2.content-subhead Detect me
-
           %div{:id => "grippe"} grippe
           %div{style:"display:none", :id=>"grippe-checkbox"}
             %input{:type => "checkbox"}=@grippe.first['symp1']
@@ -74,7 +73,8 @@
             %input{:type => "checkbox"}=@bronchiolite.first['symp4']
             %br
 
-          -@globals['maladie']='grippe'
+          = render 'form'
+          = link_to 'Back', globals_path
 
 
 
@@ -98,9 +98,7 @@
       $("#gastro-checkbox").hide();
       $("#grippe-checkbox").hide();
       });
-          %p
-          -form_for(@disease, url: "/detectme/index") do |f|
-            = f.collection_select :id, Disease.all, :id, :nameDiease
-            = f.submit
-    %script{:src => "/assets/ui.js"}
+
+
+
 

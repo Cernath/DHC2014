@@ -1,0 +1,2 @@
+module SymptsHelper
+end

@@ -1,24 +1,27 @@
 class AcceuilController < ApplicationController
   def home
-     @colocation=[]
-     @hash = Gmaps4rails.build_markers(@colocation) do |maladie, marker|
-		marker.lat maladie.latitude
-		marker.lng  maladie.longitude
-		marker.infowindow  maladie.description
-		marker.json({titre:  maladie.titre})
-		marker.picture({
-		 "url" => "/assets/markerIcons/largeTDYellowIcons/marker#{nb_colocs_supp}.png", 
-		 "width" => 30,
-		 "height" => 30
-		})
+    @maladie=Disease.new();
+    @gastro=Disease.where(:nameDiease => "gastro").count
+    @circle=Hash.new(5)
+    i=0
+    #@result = request @result.ip
+    @location = Geocoder.coordinates('195.25.102.190')
+    @result = Geocoder.search(@location)
+    @hash = Gmaps4rails.build_markers(@maladie) do |maladie, marker|
+		marker.lat @location[0]
+		marker.lng @location[1]
+		marker.infowindow "Nombre de gastros : #{@gastro}"
+		marker.json({titre: "test" })
+		@circle[i]= { lat: @location[0], lng: @location[1],radius: 10000 }
+		i=i+1
     end
-    
-    @circle = Gmaps4rails.build_markers(@colocation) do | maladie, circle|
-		circle.lat  maladie.latitude
-		circle.lng  maladie.longitude
-	end     
   end
 
   def show
   end
+  
+  
+  
+  
+  
 end

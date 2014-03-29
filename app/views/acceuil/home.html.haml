@@ -53,6 +53,28 @@
     },
     function() {
        markers =handler.addMarkers(#{@hash.to_json});
+       var color;
+       if(#{@gastro}< 5 )
+       {
+          color="#34C924";
+       }
+       else if(#{@gastro} < 10)
+       {
+          color="#F4661B";
+       }
+       else
+       {
+          color="#FF0000";
+       }
+       circle_options = { 
+          strokeColor: color,
+          fillColor: color,
+          strokeOpacity: .4,
+          fillOpacity: .6,
+          clickable: true
+       }
+       
+       handler.addCircles(#{@circle.to_json},circle_options);
        handler.bounds.extendWith(markers);
        handler.map.centerOn({ lat: 48.5, lng: 7.7 }); 
        handler.getMap().setZoom(10);

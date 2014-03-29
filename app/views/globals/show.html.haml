@@ -1,0 +1,25 @@
+%p#notice= notice
+
+%p
+  %b Ville:
+  = @global.ville
+%p
+  %b Departement:
+  = @global.departement
+%p
+  %b Region:
+  = @global.region
+%p
+  %b Pays:
+  = @global.pays
+%p
+  %b Date:
+  = @global.date
+%p
+  %b Maladie:
+  = @global.maladie
+  
+    
+= link_to 'Edit', edit_global_path(@global)
+\|
+= link_to 'Back', globals_path

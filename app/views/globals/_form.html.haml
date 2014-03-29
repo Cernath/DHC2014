@@ -1,0 +1,14 @@
+= form_for @global do |f|
+  - if @global.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@global.errors.count, "error")} prohibited this global from being saved:"
+      %ul
+        - @global.errors.full_messages.each do |msg|
+          %li= msg
+
+  
+  .field
+    = f.label :maladie
+    = f.collection_select :maladie, Disease.all,:nameDiease, :nameDiease
+  .actions
+    = f.submit 'Save'

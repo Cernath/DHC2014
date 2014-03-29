@@ -73,7 +73,8 @@
             %input{:type => "checkbox"}=@bronchiolite.first['symp4']
             %br
 
-          -@globals['maladie']='grippe'
+          = render 'form'
+          = link_to 'Back', globals_path
 
 
 
@@ -97,3 +98,7 @@
       $("#gastro-checkbox").hide();
       $("#grippe-checkbox").hide();
       });
+
+
+
+

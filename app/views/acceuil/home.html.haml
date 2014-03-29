@@ -74,12 +74,11 @@
        })
        markers =handler.addMarkers(#{@hash.to_json});
        var color;
-       var zoom = handler.getMap().getZoom();
-       if(zoom > 5 )
+       if(#{@max} < 5 )
        {
           color="#34C924";
        }
-       else if(#{@nbgastro} < 10)
+       else if(#{@max} < 10)
        {
           color="#F4661B";
        }
@@ -92,7 +91,7 @@
           fillColor: color,
           strokeOpacity: .4,
           fillOpacity: .6,
-          clickable: true
+          clickable: false
        }
        
        handler.addCircles(#{@circle.to_json},circle_options);

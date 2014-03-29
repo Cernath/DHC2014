@@ -22,7 +22,7 @@
             %li.menu-item-divided.pure-menu-selected
               %a{:href => "/"} Carte
             %li
-              %a{:href => "/detectme/index"} Detect me
+              %a{:href => "/globals/new"} Detect me
             %li
               %a{:href => "#"} Services
             %li
@@ -33,16 +33,24 @@
           %h2 Un sous titre
         .content
           %h2.content-subhead Carte
-          %div{style: "width: 100%; height: 400px;"}
-            #map{style: "width: 100%; height: 400px;position: relative; overflow: hidden;"} 
-          .pure-g
-            .pure-u-1-4
-            .pure-u-1-4
-            .pure-u-1-4
-            .pure-u-1-4
-          %h2.content-subhead Lorem Ipsum
-          %p
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          .table
+            %tr   
+              %td  
+                %div{style: "width: 50%; height: 400px;"}
+                  #map{style: "width: 100%; height: 400px;position: relative; overflow: hidden"} 
+                .pure-g
+                  .pure-u-1-4
+                  .pure-u-1-4
+                  .pure-u-1-4
+                  .pure-u-1-4
+              %td
+                %div
+                  %input{type:'checkbox',name:"Grippe", value: '0'} Grippe
+                  %br/
+                  %input{type:'checkbox',name:"Bronchiolite"} Bronchiolite
+                  %br/
+                  %input{type:'checkbox',name:"Gastro"} Gastro
+
     %script{:src => "/assets/ui.js"}
 
 :javascript
@@ -51,14 +59,27 @@
       internal: {id: 'map'}
     },
     function() {
+      $(document).ready(function() {
+        var i=0;
+        $("input[name=Grippe]").click(function(e){
+          i=i+1;
+          if ( i%2 == 0 ) {
+            
+          }
+          else {
+            
+          }
+        })
+       })
        markers =handler.addMarkers(#{@hash.to_json});
        var color;
        var zoom = handler.getMap().getZoom();
-       if(zoom < 5 )
+
+       if(#{@nbgastro}  < 5 )
        {
           color="#34C924";
        }
-       else if(#{@gastro} < 10)
+       else if(#{@nbgastro} < 10)
        {
           color="#F4661B";
        }
@@ -77,7 +98,7 @@
        handler.addCircles(#{@circle.to_json},circle_options);
        handler.bounds.extendWith(markers);
        handler.map.centerOn({ lat: 48.5, lng: 7.7 }); 
-       handler.getMap().setZoom(10);
+       
     }
   ); 
 

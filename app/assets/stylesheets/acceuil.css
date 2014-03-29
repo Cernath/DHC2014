@@ -6,3 +6,17 @@
 	width: auto; 
 	display:inline; 
 }
+
+.colonne{
+	display:inline-block;
+	width:50%;
+	vertical-align: top;
+}
+.colonnedroite{
+	display:inline-block;
+	float:right;
+}
+
+.content{
+	display:block;
+}

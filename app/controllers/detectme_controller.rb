@@ -1,9 +1,15 @@
 class DetectmeController < ApplicationController
+
 	def index	
 	   @gastro=Symp.where(:maladie => 'gastro')
 	   @grippe=Symp.where(:maladie => 'grippe')
 	   @bronchiolite=Symp.where(:maladie => 'bronchiolite')
 	   @globals=Global.new
+
+	def new		
+	   @data= Epidemicdata.new
+	   @disease=Epidemicdata.Disease.new
+	   @symptome=Epidemicdata.Symptom.new
 	end
 	def create
 	 

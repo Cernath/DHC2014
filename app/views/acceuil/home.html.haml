@@ -48,14 +48,27 @@
 :javascript
   handler = Gmaps.build('Google');
   handler.buildMap({ 
-      provider: {zoom: 5}, 
       internal: {id: 'map'}
     },
     function() {
        markers =handler.addMarkers(#{@hash.to_json});
-       
+       var color;
+       var zoom = handler.getMap().getZoom();
+       if(zoom < 5 )
+       {
+          color="#34C924";
+       }
+       else if(#{@gastro} < 10)
+       {
+          color="#F4661B";
+       }
+       else
+       {
+          color="#FF0000";
+       }
        circle_options = { 
-          strokeColor:"#313131",
+          strokeColor: color,
+          fillColor: color,
           strokeOpacity: .4,
           fillOpacity: .6,
           clickable: true

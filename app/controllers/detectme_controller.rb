@@ -1,10 +1,16 @@
 class DetectmeController < ApplicationController
-	
-	def index	
-	
+
+	def index
+		
 	end
 	def create
-	    
+	end
+	def new		
+	   @data= Epidemicdata.new
+	   @disease=Epidemicdata.Disease.new
+	   @symptome=Epidemicdata.Symptom.new
+	end
+	def create
 	    @data.City.nameCity =  @result[0].data.first[1][2].first[1]
 	    @data.Department.nameDeprtment =  @result[0].data.first[1][3].first[1]
 	    @data.Region.nameRegion =  @result[0].data.first[1][4].first[1]

@@ -1,7 +1,7 @@
 class AcceuilController < ApplicationController
   def home
     @maladie=Disease.new();
-    @circle=Hash.new(5)
+    @circle=Hash.new()
     i=0
     #@result = request @result.ip
     @location = Geocoder.coordinates('195.25.102.190')
@@ -15,7 +15,7 @@ class AcceuilController < ApplicationController
 		i=i+1
     end
   end
-
+  
   def show
   end
   

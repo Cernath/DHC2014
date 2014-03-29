@@ -39,8 +39,10 @@
             .pure-u-1-4
             .pure-u-1-4
           %h2.content-subhead Detect me
-          =select("post","idDisease", Disease.all.collect {|p| [p.nameDiease, p.idDisease]},{include_blank: true})
-            %button{:submit}
-
+         
+          %select.selectpicker{name: 'formulaire'}
+            %option Mustard
+            %option Coucou
+ 
 
     %script{:src => "/assets/ui.js"}

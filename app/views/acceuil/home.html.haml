@@ -19,10 +19,6 @@
 :javascript
   handler = Gmaps.build('Google');
   
-  var infowindow= new google.maps.InfoWindow({
-          content: "coucou"
-  });
-  
   var map = handler.buildMap({ 
       provider: {zoom: 5}, 
       internal: {id: 'map'}
@@ -30,7 +26,6 @@
     function() {
        markers = handler.addMarkers(#{@hash.to_json});
        
-       circle = [{lat: 48.5, lng: 7.7, radius: 100000 }]
        circle_options = { 
           strokeColor:"#313131",
           strokeOpacity: .4,
@@ -40,14 +35,10 @@
           fillOpacity: .6,
           clickable: true
        }
-       
-       google.maps.event.addListener(circle, 'click', function(object){ 
-          infoWindow.setPosition(ev.latLng);
-          infoWindow.open(Gmaps.map);
-       }); 
-        
-       handler.addCircles(circle, circle_options);
+	   
+       cercle = handler.addCircles(#{@circle.to_json}, circle_options);
        handler.bounds.extendWith(markers);
+       handler.bounds.extendWith(cercle);
        handler.map.centerOn({ lat: 48.5, lng: 7.7 }); 
        handler.getMap().setZoom(10);
     }

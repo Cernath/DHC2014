@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idDisease: 1
+  nameDiease: MyString
+
+two:
+  idDisease: 1
+  nameDiease: MyString

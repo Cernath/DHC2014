@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idSymptom: 1
+  nomSymptom: MyString
+  descriptionSymptom: MyText
+
+two:
+  idSymptom: 1
+  nomSymptom: MyString
+  descriptionSymptom: MyText

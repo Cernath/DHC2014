@@ -47,3 +47,4 @@ end
 gem 'gmaps4rails'
 gem 'geocoder'
 gem 'haml-rails'
+gem 'rails_12factor'

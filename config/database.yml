@@ -14,8 +14,9 @@ development:
   database: DHC2014_development
   pool: 5
   username: root
-  password: 34090nancy
-  #host: epidemic@195.25.102.190
+  password: epidemic
+  host: 195.25.102.190
+  port: 3306
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and

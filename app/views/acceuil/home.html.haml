@@ -5,7 +5,6 @@
 .container
   .row
     .col-md-8
-      %h1 Carte
       %div{style: "width: 100%; height: 400px;"}
         #map{style: "width: 100%; height: 400px;position: relative; overflow: hidden;"}
     .col-md-4
@@ -17,38 +16,3 @@
 
  
 :javascript
-handler = Gmaps.build('Google');
- 
-  var map = handler.buildMap({ 
-      provider: {zoom: 5}, 
-      internal: {id: 'map'}
-    },
-    function() {
-       markers =handler.addMarkers(#{@hash.to_json});
-       circle = [{lat: 48.5, lng: 7.7, radius: 100000 }]
-       circle_options = { 
-          strokeColor:"#313131",
-          strokeOpacity: .4,
-          StrokeWeight: .8,
-          strokeWeight: 3,
-          fillColor: '#C60800',
-          fillOpacity: .6,
-          clickable: true,
-          
-       }
-        var infowindow= new google.maps.InfoWindow({
-          content: '<span class="infowin">Center Marker (draggable)</span>'
-       });
-       $(circle).onclick(function(){
-        $(".infowin").show();
-       })
-       handler.addCircles(circle, circle_options);
-       google.maps.event.addListener(circle, 'click', function(ev){
-    infoWindow.setPosition(ev.latLng);
-    infoWindow.open(map,circle);
-    });
-       handler.bounds.extendWith(markers);
-       handler.map.centerOn({ lat: 48.5, lng: 7.7 }); 
-       handler.getMap().setZoom(10);
-    }
-  ); 

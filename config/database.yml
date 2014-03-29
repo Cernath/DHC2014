@@ -23,7 +23,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: DHC2014_test
+  database: epidemic
   pool: 5
   username: root
   password: 34090nancy
@@ -32,7 +32,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: DHC2014_production
+  database: epidemic
   pool: 5
   username: root
   password: 34090nancy

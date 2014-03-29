@@ -1,9 +1,11 @@
 class AcceuilController < ApplicationController
   def home
-     @colocation=[]
-     @hash = Gmaps4rails.build_markers(@colocation) do |maladie, marker|
-		marker.lat maladie.latitude
-		marker.lng  maladie.longitude
+     @maladie=Disease.all
+     @result = request.location
+     @location = Geocoder.coordinates('195.25.102.190')
+     @hash = Gmaps4rails.build_markers(@maladie) do |maladie, marker|
+		marker.lat @location[0]
+		marker.lng @location[1]
 		marker.infowindow  maladie.description
 		marker.json({titre:  maladie.titre})
 		marker.picture({

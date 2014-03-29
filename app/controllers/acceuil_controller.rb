@@ -1,8 +1,5 @@
 class AcceuilController < ApplicationController
   def home
-<<<<<<< HEAD
-  	
-=======
      @colocation=[]
      @hash = Gmaps4rails.build_markers(@colocation) do |maladie, marker|
 		marker.lat maladie.latitude
@@ -19,10 +16,7 @@ class AcceuilController < ApplicationController
     @circle = Gmaps4rails.build_markers(@colocation) do | maladie, circle|
 		circle.lat  maladie.latitude
 		circle.lng  maladie.longitude
-	end
-    
-     
->>>>>>> c1706d97bfc8e31b29eac2b8969decb15d06114f
+	end     
   end
 
   def show

@@ -18,7 +18,7 @@ class AcceuilController < ApplicationController
     @circle=Hash.new()
     i=0
     #@result = request @result.ip
-    @location = Geocoder.coordinates('195.25.102.190')
+    @location = Geocoder.coordinates('82.235.183.181')
     @result = Geocoder.search(@location)
     @hash = Gmaps4rails.build_markers(@maladie) do |maladie, marker|
 		marker.lat @location[0]

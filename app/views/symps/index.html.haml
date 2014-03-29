@@ -1,0 +1,29 @@
+%h1 Listing symps
+
+%table
+  %tr
+    %th Maladie
+    %th Symp1
+    %th Symp2
+    %th Symp3
+    %th Symp4
+    %th Symp5
+    %th
+    %th
+    %th
+
+  - @symps.each do |symp|
+    %tr
+      %td= symp.maladie
+      %td= symp.symp1
+      %td= symp.symp2
+      %td= symp.symp3
+      %td= symp.symp4
+      %td= symp.symp5
+      %td= link_to 'Show', symp
+      %td= link_to 'Edit', edit_symp_path(symp)
+      %td= link_to 'Destroy', symp, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Symp', new_symp_path

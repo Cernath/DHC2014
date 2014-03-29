@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Maladie:
+  = @symp.maladie
+%p
+  %b Symp1:
+  = @symp.symp1
+%p
+  %b Symp2:
+  = @symp.symp2
+%p
+  %b Symp3:
+  = @symp.symp3
+%p
+  %b Symp4:
+  = @symp.symp4
+%p
+  %b Symp5:
+  = @symp.symp5
+
+= link_to 'Edit', edit_symp_path(@symp)
+\|
+= link_to 'Back', symps_path

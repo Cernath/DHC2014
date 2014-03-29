@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  maladie: MyString
+  symp1: MyString
+  symp2: MyString
+  symp3: MyString
+  symp4: MyString
+  symp5: MyString
+
+two:
+  maladie: MyString
+  symp1: MyString
+  symp2: MyString
+  symp3: MyString
+  symp4: MyString
+  symp5: MyString

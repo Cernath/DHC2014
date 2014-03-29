@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idCity: 1
+  nameCity: MyString
+  idDepartment: 1
+
+two:
+  idCity: 1
+  nameCity: MyString
+  idDepartment: 1

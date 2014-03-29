@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idCountry: 1
+  nameCountry: MyString
+  shortCountry: 1
+
+two:
+  idCountry: 1
+  nameCountry: MyString
+  shortCountry: 1

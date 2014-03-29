@@ -16,3 +16,34 @@
 
  
 :javascript
+<<<<<<< HEAD
+=======
+  handler = Gmaps.build('Google');
+  
+  var map = handler.buildMap({ 
+      provider: {zoom: 5}, 
+      internal: {id: 'map'}
+    },
+    function() {
+       markers = handler.addMarkers(#{@hash.to_json});
+       
+       circle_options = { 
+          strokeColor:"#313131",
+          strokeOpacity: .4,
+          StrokeWeight: .8,
+          strokeWeight: 3,
+          fillColor: '#C60800',
+          fillOpacity: .6,
+          clickable: true
+       }
+	   
+       cercle = handler.addCircles(#{@circle.to_json}, circle_options);
+       handler.bounds.extendWith(markers);
+       handler.bounds.extendWith(cercle);
+       handler.map.centerOn({ lat: 48.5, lng: 7.7 }); 
+       handler.getMap().setZoom(10);
+    }
+    
+  ); 
+  
+>>>>>>> c1706d97bfc8e31b29eac2b8969decb15d06114f

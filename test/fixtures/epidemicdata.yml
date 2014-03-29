@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idData: 1
+  date: 2014-03-29
+  idCity: 1
+  idDisease: 1
+
+two:
+  idData: 1
+  date: 2014-03-29
+  idCity: 1
+  idDisease: 1

@@ -107,7 +107,12 @@ ActiveRecord::Schema.define(version: 20140329164943) do
 
   create_table "sympts", force: true do |t|
     t.string   "maladie"
-    t.string   "symptome"
+    t.string   "symptome1"
+    t.string   "symptome2"
+    t.string   "symptome3"
+    t.string   "symptome4"
+    t.string   "symptome5"
+    t.string   "symptome6"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
